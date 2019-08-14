@@ -1,0 +1,2 @@
+# GitSuperStars
+A small project that consist on load swift repositories from GitHub to demonstrate some implementations in swift like infinite scrolling, MVVM + Coordinators, view coding and some minor stuffs.
