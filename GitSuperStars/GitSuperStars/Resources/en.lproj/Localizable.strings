@@ -1,0 +1,9 @@
+"error" = "Error";
+"failed_to_proccess_the_results_error" = "Failed to proccess the Github results.";
+"api_request_error" = "Failed to receive Github data, check your conectivity and try again.";
+"unexpected_error" = "An unexpected error ocurred.";
+"pull_to_refresh" = "Pull to refresh";
+"x_rating_limit_error" = "The request limit on Github was reached, wait %i seconds and try again.";
+"stars" = "Stars";
+"star" = "Star";
+"ok" = "Ok";
