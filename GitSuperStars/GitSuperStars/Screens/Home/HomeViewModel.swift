@@ -16,15 +16,15 @@ final class HomeViewModel {
     private weak var repository: Repository?
     private var repositories = [GitRepositoryItem]()
     
-    /// Pagination is starting in 1
-    /// ref: https://developer.github.com/v3/#pagination
+    /// The current page used in pagination, starting in 1.
+    /// Reference: [GitHub Pagination](https://developer.github.com/v3/#pagination)
     private var currentPage = 1
     private var total = 0
     private var maxPages = 0
     
     // MARK: - Lifecycle
 
-    init( repository:Repository ) {
+    init( repository: Repository ) {
         self.repository = repository
     }
     
@@ -34,6 +34,7 @@ final class HomeViewModel {
     
     // MARK: - Public
  
+    /// `true` if we have an fetching request in progress
     var isFetchInProgress: Bool {
         get {
             return state.value == HomeViewModelState.fetching
@@ -50,12 +51,21 @@ final class HomeViewModel {
         return repositories.count
     }
     
-    /// Get a GitRepositoryItem for the index presented
+    /// Get a GitRepositoryItem for the presented index.
+    ///
+    /// - Parameters:
+    ///   - index: The index for the local array containing the downloaded repository items.
+    ///
+    /// - Returns:
+    ///   - The corresponding GitRepositoryItem for the local array of downloaded repository items.
     func gitRepositoryItem(at index: Int) -> GitRepositoryItem {
         return repositories[index]
     }
     
-    /// Fetch the next set of data anda append to the current content
+    /// Fetch the next set of data anda append to the current content.
+    ///
+    /// - Returns:
+    ///   - `false` if we has a fetching in progress, or the current page is the last page.
     func fetchNextSetOfData() -> Bool {
         guard !isFetchInProgress, hasNextPage() else {
             return false
@@ -65,6 +75,9 @@ final class HomeViewModel {
     }
     
     /// Clears the local data and fetch the first set.
+    ///
+    /// - Returns:
+    ///   - `false` if we has a fetching in progress.
     func fetchFirstSetOfData() -> Bool {
         guard !isFetchInProgress else {
             return false
@@ -76,6 +89,9 @@ final class HomeViewModel {
     
     // MARK: - Helper functions
     
+    /// Request the repository to fetches new data from the GitHub repository.
+    ///
+    /// The request, response and error will trigger a change in the `self` observable variable `state`.
     private func fetchData() {
         
        print("Loading page:\(currentPage)/\(maxPages) perPage:\(Settings.Services.Git.ITEMS_PER_PAGE)  count:\(currentCount)/\(totalCount)")
