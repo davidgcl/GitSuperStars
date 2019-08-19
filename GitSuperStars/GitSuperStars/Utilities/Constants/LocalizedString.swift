@@ -6,6 +6,7 @@ enum LocalizedString {
     case failed_to_proccess_the_results_error
     case api_request_error
     case unexpected_error
+    case unexpected_network_error
     case pull_to_refresh
     case x_rating_limit_error
     case stars

@@ -19,7 +19,7 @@ final class AppCoordinator: Coordinator {
     
     public init(window: UIWindow) {
         self.window = window
-        self.repository = GitRepository()
+        self.repository = URLSessionRepository()
         super.init(navigationController: UINavigationController(rootViewController: UIViewController()))
     }
     

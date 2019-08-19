@@ -27,16 +27,15 @@
 		17B425E62283BBC30049B480 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B425E52283BBC30049B480 /* Size.swift */; };
 		17B425EC2283D0000049B480 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B425EB2283D0000049B480 /* Repository.swift */; };
 		17B425EF2283D11E0049B480 /* GitRepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B425EE2283D11E0049B480 /* GitRepositoryItem.swift */; };
-		17B425F12283D46A0049B480 /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B425F02283D46A0049B480 /* GitRepository.swift */; };
 		17B425F62283D7A80049B480 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17B425F22283D7A80049B480 /* Roboto-Light.ttf */; };
 		17B425F72283D7A80049B480 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17B425F32283D7A80049B480 /* Roboto-Bold.ttf */; };
 		17B425F82283D7A80049B480 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17B425F42283D7A80049B480 /* Roboto-Regular.ttf */; };
 		17B425F92283D7A80049B480 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17B425F52283D7A80049B480 /* Roboto-Medium.ttf */; };
-		17B425FE2283DD530049B480 /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B425FD2283DD530049B480 /* GitService.swift */; };
 		17B426002283EFE70049B480 /* GitRepositoryQueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B425FF2283EFE70049B480 /* GitRepositoryQueryResult.swift */; };
 		17B7CDFC2287983B00780D3C /* GitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7CDFB2287983B00780D3C /* GitUser.swift */; };
 		17B7CDFE2287A55400780D3C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7CDFD2287A55400780D3C /* Date.swift */; };
 		17CB427622860BF4004FD890 /* LoadingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB427522860BF4004FD890 /* LoadingViewCell.swift */; };
+		17CC499F230AE8A1008D328F /* URLSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC499E230AE8A1008D328F /* URLSessionRepository.swift */; };
 		17E5CBBB228A0EAB00C52938 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5CBBA228A0EAB00C52938 /* HomeView.swift */; };
 		67AEB13A07BDA5EEC02F6B54 /* Pods_GitSuperStars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069F983009577C3BC36C43B0 /* Pods_GitSuperStars.framework */; };
 /* End PBXBuildFile section */
@@ -66,16 +65,15 @@
 		17B425E52283BBC30049B480 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		17B425EB2283D0000049B480 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		17B425EE2283D11E0049B480 /* GitRepositoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryItem.swift; sourceTree = "<group>"; };
-		17B425F02283D46A0049B480 /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		17B425F22283D7A80049B480 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		17B425F32283D7A80049B480 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		17B425F42283D7A80049B480 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		17B425F52283D7A80049B480 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		17B425FD2283DD530049B480 /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		17B425FF2283EFE70049B480 /* GitRepositoryQueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryQueryResult.swift; sourceTree = "<group>"; };
 		17B7CDFB2287983B00780D3C /* GitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitUser.swift; sourceTree = "<group>"; };
 		17B7CDFD2287A55400780D3C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		17CB427522860BF4004FD890 /* LoadingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewCell.swift; sourceTree = "<group>"; };
+		17CC499E230AE8A1008D328F /* URLSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRepository.swift; sourceTree = "<group>"; };
 		17E5CBBA228A0EAB00C52938 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		54F625BACA5F9B7D63092C8B /* Pods-GitSuperStarsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitSuperStarsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitSuperStarsUITests/Pods-GitSuperStarsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5C3737E8D88AE03668C47B85 /* Pods-GitSuperStarsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitSuperStarsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitSuperStarsTests/Pods-GitSuperStarsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,10 +176,9 @@
 		17B425BF2283B0290049B480 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				17B425FC2283DD220049B480 /* Api */,
 				17B425ED2283D0E60049B480 /* Models */,
 				17B425EB2283D0000049B480 /* Repository.swift */,
-				17B425F02283D46A0049B480 /* GitRepository.swift */,
+				17CC499E230AE8A1008D328F /* URLSessionRepository.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -266,14 +263,6 @@
 				17B7CDFB2287983B00780D3C /* GitUser.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		17B425FC2283DD220049B480 /* Api */ = {
-			isa = PBXGroup;
-			children = (
-				17B425FD2283DD530049B480 /* GitService.swift */,
-			);
-			path = Api;
 			sourceTree = "<group>";
 		};
 		8C78C487C7902FE349E10CA0 /* Frameworks */ = {
@@ -417,13 +406,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B425E62283BBC30049B480 /* Size.swift in Sources */,
-				17B425F12283D46A0049B480 /* GitRepository.swift in Sources */,
 				178EA8B02284F50B002EF779 /* UIView.swift in Sources */,
 				17B7CDFC2287983B00780D3C /* GitUser.swift in Sources */,
 				178EA8A22284B24F002EF779 /* GitRepositoryItemTableViewCell.swift in Sources */,
 				17B425D02283B57F0049B480 /* AppCoordinator.swift in Sources */,
 				17B7CDFE2287A55400780D3C /* Date.swift in Sources */,
 				17B425E42283BBBB0049B480 /* Font.swift in Sources */,
+				17CC499F230AE8A1008D328F /* URLSessionRepository.swift in Sources */,
 				17B425DA2283B7E00049B480 /* HomeViewModel.swift in Sources */,
 				17B425CE2283B3EB0049B480 /* Coordinator.swift in Sources */,
 				17B425EC2283D0000049B480 /* Repository.swift in Sources */,
@@ -433,7 +422,6 @@
 				17AF5C5D23037CD000A3E7D0 /* LocalizedString.swift in Sources */,
 				17CB427622860BF4004FD890 /* LoadingViewCell.swift in Sources */,
 				178EA8AE2284F4FF002EF779 /* UIViewController.swift in Sources */,
-				17B425FE2283DD530049B480 /* GitService.swift in Sources */,
 				17B426002283EFE70049B480 /* GitRepositoryQueryResult.swift in Sources */,
 				17B425EF2283D11E0049B480 /* GitRepositoryItem.swift in Sources */,
 				17B425DF2283BA4C0049B480 /* Color.swift in Sources */,

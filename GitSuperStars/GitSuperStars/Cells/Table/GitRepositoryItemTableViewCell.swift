@@ -25,7 +25,7 @@ class GitRepositoryItemTableViewCell: UITableViewCell {
     
     // MARK: - Public functions
     
-    func bind(gitRepositoryItem:GitRepositoryItem) {
+    func bind(gitRepositoryItem: GitRepositoryItem) {
         
         // Bind texts
         repositoryTitleText.text = gitRepositoryItem.name.uppercased()

@@ -7,3 +7,4 @@
 "stars" = "Stars";
 "star" = "Star";
 "ok" = "Ok";
+"unexpected_network_error" = "An unespected network error was ocurred, please try again.";
