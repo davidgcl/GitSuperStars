@@ -1,10 +1,12 @@
 import UIKit
+import RxSwift
 
 class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
     private let viewModel: HomeViewModel
+    private let disposeBag = DisposeBag()
 
     private var homeView: HomeView {
         return self.view as! HomeView
@@ -78,15 +80,13 @@ class HomeViewController: UIViewController {
     }
     
     private func addViewModelListeners() {
-        viewModel.state.addAndNotify(self) { [weak self] in
+        viewModel.state.asObservable().subscribe(onNext: { [weak self] (state) in
+            
             guard let self = self else { return }
             
             switch self.viewModel.state.value {
-            case .none:
-                break
-                
-            case .fetching:
-                break
+            case .none: break
+            case .fetching: break
                 
             case .fetchSuccess:
                 self.homeView.tableView.reloadData()
@@ -96,7 +96,8 @@ class HomeViewController: UIViewController {
                 self.extShowAlert(title: LocalizedString.error.value, message: localizedDescription, completion: .none)
                 self.endRefreshing()
             }
-        }
+            
+        }).disposed(by: disposeBag)
     }
     
     private func removeViewModelListeners() {

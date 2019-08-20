@@ -1,13 +1,20 @@
 import XCTest
+import RxSwift
+import RxCocoa
+import RxBlocking
 @testable import GitSuperStars
 
 class HomeViewModelTests: XCTestCase {
     
+    private var disposeBag: DisposeBag!
+
     private var viewModel: HomeViewModel!
     private var repository: Repository!
     
     override func setUp() {
         super.setUp()
+        
+        disposeBag = DisposeBag()
     }
 
     override func tearDown() {
@@ -16,15 +23,16 @@ class HomeViewModelTests: XCTestCase {
         self.viewModel = nil
     }
     
-    func test_userRequestsToSeeTheFeed_WithConnectivity() {
+    func test_userRequestsToSeeTheFeed_withConnectivity_returnsFeed() throws {
         
         self.repository = StubRepository(with: .success(StubRepository.loadMockedGitRepositoryQueryResult()))
         self.viewModel = HomeViewModel(repository: repository)
         
         let expectation = XCTestExpectation(description: "Load stubbed feed results with connectivity.")
         let startedWithLoadedItemsCount = viewModel.currentCount
-
-        viewModel.state.addObserver(self) {
+        
+        self.viewModel.state.asObservable().subscribe(onNext: { [weak self] (state) in
+            guard let self = self else { return }
             
             switch self.viewModel.state.value {
             case .none, .fetching: break
@@ -37,19 +45,20 @@ class HomeViewModelTests: XCTestCase {
                 XCTFail("Fetch returned an error with description: \(localizedDescription)")
                 expectation.fulfill()
             }
-        }
+        }).disposed(by: disposeBag)
         
         XCTAssertTrue(self.viewModel.fetchFirstSetOfData(), "Request was refused")
         wait(for: [expectation], timeout: 5.0)
     }
     
-    func test_userRequestsToSeeTheFeed_WithNoConnectivity() {
+    func test_userRequestsToSeeTheFeed_withNoConnectivity_returnsError() {
         
         self.repository = StubRepository(with: .error(RepositoryError(with: LocalizedString.unexpected_network_error.value)))
         self.viewModel = HomeViewModel(repository: repository)
         let expectation = XCTestExpectation(description: "Load stubbed feed results with no connectivity.")
         
-        self.viewModel.state.addObserver(self) {
+        self.viewModel.state.asObservable().subscribe(onNext: { [weak self] (state) in
+            guard let self = self else { return }
             
             switch self.viewModel.state.value {
             case .none, .fetching: break
@@ -62,13 +71,13 @@ class HomeViewModelTests: XCTestCase {
                 XCTAssertTrue(true, "The request succeded bringing the error: \(localizedDescription).")
                 expectation.fulfill()
             }
-        }
+        }).disposed(by: disposeBag)
         
         XCTAssertTrue(viewModel.fetchFirstSetOfData(), "Request was refused")
         wait(for: [expectation], timeout: 5.0)
     }
     
-    func test_userRequestsToSeeTheNextFeeds_WithConnectivity() {
+    func test_userRequestsToSeeTheNextFeeds_withConnectivity_returnsFeed() {
         
         self.repository = StubRepository(with: .success(StubRepository.loadMockedGitRepositoryQueryResult()))
         self.viewModel = HomeViewModel(repository: repository)
@@ -76,7 +85,8 @@ class HomeViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Load more stubbed feed results.")
         let startedWithLoadedItemsCount = viewModel.currentCount
     
-        self.viewModel.state.addObserver(self) {
+        self.viewModel.state.asObservable().subscribe(onNext: { [weak self] (state) in
+            guard let self = self else { return }
             
             switch self.viewModel.state.value {
             case .none, .fetching: break
@@ -90,20 +100,21 @@ class HomeViewModelTests: XCTestCase {
                 XCTFail("Fetch returned an error with description: \(localizedDescription)")
                 expectation.fulfill()
             }
-        }
+        }).disposed(by: disposeBag)
         
         XCTAssertTrue(self.viewModel.fetchNextSetOfData(), "Request was refused")
         
         wait(for: [expectation], timeout: 5.0)
     }
     
-    func test_userRequestsToSeeTheNextFeeds_WithNoConnectivity() {
+    func test_userRequestsToSeeTheNextFeeds_withNoConnectivity_returnsError() {
         
         self.repository = StubRepository(with: .error(RepositoryError(with: LocalizedString.unexpected_network_error.value)))
         self.viewModel = HomeViewModel(repository: repository)
         let expectation = XCTestExpectation(description: "Load stubbed feed results with no connectivity.")
         
-        self.viewModel.state.addObserver(self) {
+        self.viewModel.state.asObservable().subscribe(onNext: { [weak self] (state) in
+            guard let self = self else { return }
             
             switch self.viewModel.state.value {
             case .none, .fetching: break
@@ -116,7 +127,7 @@ class HomeViewModelTests: XCTestCase {
                 XCTAssertTrue(true, "The request succeded bringing the error: \(localizedDescription).")
                 expectation.fulfill()
             }
-        }
+        }).disposed(by: disposeBag)
         
         XCTAssertTrue(self.viewModel.fetchNextSetOfData(), "Request was refused")
         wait(for: [expectation], timeout: 5.0)

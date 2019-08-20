@@ -1,0 +1,6 @@
+framework module Pods_GitSuperStarsTests {
+  umbrella header "Pods-GitSuperStarsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

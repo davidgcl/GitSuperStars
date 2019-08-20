@@ -1,4 +1,5 @@
 import Foundation
+import RxCocoa
 
 final class HomeViewModel {
     
@@ -30,7 +31,7 @@ final class HomeViewModel {
     
     // MARK: - Observable
 
-    private(set) var state = DynamicValue<HomeViewModelState>(HomeViewModelState.none)
+    let state = BehaviorRelay<HomeViewModelState>(value: HomeViewModelState.none)
     
     // MARK: - Public
  
@@ -96,13 +97,13 @@ final class HomeViewModel {
         
        print("Loading page:\(currentPage)/\(maxPages) perPage:\(Settings.Services.Git.ITEMS_PER_PAGE)  count:\(currentCount)/\(totalCount)")
         
-        state.value = .fetching
+        state.accept(.fetching)
         
         repository?.getSwiftRepositories(page: currentPage, perPage: Settings.Services.Git.ITEMS_PER_PAGE) { [unowned self] (result) in
             
             switch result {
             case let .error(error):
-                self.state.value = .fetchError(localizedDescription: error.localizedDescription)
+                self.state.accept(.fetchError(localizedDescription: error.localizedDescription))
 
             case let .success(gitRepositoryQueryResult):
 
@@ -119,7 +120,7 @@ final class HomeViewModel {
                 self.maxPages = Int(ceil(Double(self.total) / Double(Settings.Services.Git.ITEMS_PER_PAGE)))
                 self.repositories.append(contentsOf: gitRepositoryQueryResult.items)
 
-                self.state.value = .fetchSuccess
+                self.state.accept(.fetchSuccess)
             }
         }
     }
