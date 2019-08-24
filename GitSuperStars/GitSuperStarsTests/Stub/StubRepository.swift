@@ -3,26 +3,30 @@ import Foundation
 
 class StubRepository: Repository {
 
-    /// The stubbed result
-    private let result: Result<GitRepositoryQueryResult>
+    private var stubbedResult: Result<GitRepositoryQueryResult>
+    private var stubbedDelay: Double
     
-    init(with result: Result<GitRepositoryQueryResult> ) {
-        self.result = result
+    init(with result: Result<GitRepositoryQueryResult>, delay: Double = 0.0 ) {
+        self.stubbedResult = result
+        self.stubbedDelay = delay
+    }
+    
+    func setStubbedResult(_ result: Result<GitRepositoryQueryResult> ) {
+        self.stubbedResult = result
+    }
+    
+    func setStubbedResultDelay(_ delay: Double ) {
+        self.stubbedDelay = delay
     }
     
     func getSwiftRepositories(page:Int, perPage:Int, completion: @escaping (Result<GitRepositoryQueryResult>) -> Void) {
-        completion(result)
+        if stubbedDelay > 0.0 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + stubbedDelay) { [weak self] in
+                guard let self = self else { return }
+                completion(self.stubbedResult)
+            }
+        } else {
+            completion(stubbedResult)
+        }
     }
-}
-
-extension StubRepository {
-    
-    static func loadMockedGitRepositoryQueryResult() -> GitRepositoryQueryResult {
-        let bundle = Bundle(for: HomeViewModelTests.self)
-        let url = bundle.url(forResource: "mockedGitHubRepositoriesResponse", withExtension: "json")
-        let data = try! Data(contentsOf: url!)
-        let queryResult = try! JSONDecoder().decode(GitRepositoryQueryResult.self, from: data)
-        return queryResult
-    }
-    
 }

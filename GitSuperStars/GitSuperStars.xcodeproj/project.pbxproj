@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17239B4C2310727C00542F61 /* HomeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17239B4B2310727C00542F61 /* HomeDetailsViewModel.swift */; };
+		17239B4E2310728C00542F61 /* HomeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17239B4D2310728C00542F61 /* HomeDetailsViewController.swift */; };
+		17239B50231072D100542F61 /* HomeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17239B4F231072D100542F61 /* HomeDetailsViewController.xib */; };
+		17239B54231077FE00542F61 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17239B53231077FE00542F61 /* LoadingView.swift */; };
+		17239B562310801100542F61 /* HomeViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17239B552310801100542F61 /* HomeViewDataProvider.swift */; };
 		178EA8A22284B24F002EF779 /* GitRepositoryItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EA8A12284B24F002EF779 /* GitRepositoryItemTableViewCell.swift */; };
 		178EA8A62284B7E2002EF779 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EA8A52284B7E2002EF779 /* HomeViewController.swift */; };
 		178EA8AC2284DEDE002EF779 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EA8AB2284DEDE002EF779 /* Settings.swift */; };
@@ -33,10 +38,8 @@
 		17B426002283EFE70049B480 /* GitRepositoryQueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B425FF2283EFE70049B480 /* GitRepositoryQueryResult.swift */; };
 		17B7CDFC2287983B00780D3C /* GitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7CDFB2287983B00780D3C /* GitUser.swift */; };
 		17B7CDFE2287A55400780D3C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B7CDFD2287A55400780D3C /* Date.swift */; };
-		17CB427622860BF4004FD890 /* LoadingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB427522860BF4004FD890 /* LoadingViewCell.swift */; };
 		17CC499F230AE8A1008D328F /* URLSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC499E230AE8A1008D328F /* URLSessionRepository.swift */; };
 		17CC49A7230B1D5A008D328F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC49A6230B1D5A008D328F /* HomeViewModelTests.swift */; };
-		17CC49B0230B237B008D328F /* mockedGitHubRepositoriesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 17CC49AF230B237B008D328F /* mockedGitHubRepositoriesResponse.json */; };
 		17CC49B3230B33C2008D328F /* StubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC49B2230B33C2008D328F /* StubRepository.swift */; };
 		17E5CBBB228A0EAB00C52938 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5CBBA228A0EAB00C52938 /* HomeView.swift */; };
 		67AEB13A07BDA5EEC02F6B54 /* Pods_GitSuperStars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069F983009577C3BC36C43B0 /* Pods_GitSuperStars.framework */; };
@@ -55,6 +58,11 @@
 
 /* Begin PBXFileReference section */
 		069F983009577C3BC36C43B0 /* Pods_GitSuperStars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitSuperStars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17239B4B2310727C00542F61 /* HomeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailsViewModel.swift; sourceTree = "<group>"; };
+		17239B4D2310728C00542F61 /* HomeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailsViewController.swift; sourceTree = "<group>"; };
+		17239B4F231072D100542F61 /* HomeDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailsViewController.xib; sourceTree = "<group>"; };
+		17239B53231077FE00542F61 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		17239B552310801100542F61 /* HomeViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDataProvider.swift; sourceTree = "<group>"; };
 		178EA8A12284B24F002EF779 /* GitRepositoryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryItemTableViewCell.swift; sourceTree = "<group>"; };
 		178EA8A52284B7E2002EF779 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		178EA8AB2284DEDE002EF779 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -84,12 +92,10 @@
 		17B425FF2283EFE70049B480 /* GitRepositoryQueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryQueryResult.swift; sourceTree = "<group>"; };
 		17B7CDFB2287983B00780D3C /* GitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitUser.swift; sourceTree = "<group>"; };
 		17B7CDFD2287A55400780D3C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		17CB427522860BF4004FD890 /* LoadingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewCell.swift; sourceTree = "<group>"; };
 		17CC499E230AE8A1008D328F /* URLSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRepository.swift; sourceTree = "<group>"; };
 		17CC49A4230B1D5A008D328F /* GitSuperStarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitSuperStarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CC49A6230B1D5A008D328F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		17CC49A8230B1D5A008D328F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		17CC49AF230B237B008D328F /* mockedGitHubRepositoriesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockedGitHubRepositoriesResponse.json; sourceTree = "<group>"; };
 		17CC49B2230B33C2008D328F /* StubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRepository.swift; sourceTree = "<group>"; };
 		17E5CBBA228A0EAB00C52938 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		54F625BACA5F9B7D63092C8B /* Pods-GitSuperStarsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitSuperStarsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitSuperStarsUITests/Pods-GitSuperStarsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +128,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1706FBBA2311D9BD00D07002 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				17239B53231077FE00542F61 /* LoadingView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		17239B4A2310717600542F61 /* RepositoryDetails */ = {
+			isa = PBXGroup;
+			children = (
+				17239B4B2310727C00542F61 /* HomeDetailsViewModel.swift */,
+				17239B4D2310728C00542F61 /* HomeDetailsViewController.swift */,
+				17239B4F231072D100542F61 /* HomeDetailsViewController.xib */,
+			);
+			path = RepositoryDetails;
+			sourceTree = "<group>";
+		};
 		17AF5C5823035D1900A3E7D0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				178EA8A12284B24F002EF779 /* GitRepositoryItemTableViewCell.swift */,
-				17CB427522860BF4004FD890 /* LoadingViewCell.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -163,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				17AF5C5823035D1900A3E7D0 /* Cells */,
+				1706FBBA2311D9BD00D07002 /* Components */,
 				17B425BC2283AFA60049B480 /* Coordinators */,
 				17B425C02283B0330049B480 /* Resources */,
 				17B425BD2283AFB20049B480 /* Screens */,
@@ -186,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				17B425D42283B7950049B480 /* Home */,
+				17239B4A2310717600542F61 /* RepositoryDetails */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -252,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				17B425D92283B7E00049B480 /* HomeViewModel.swift */,
+				17239B552310801100542F61 /* HomeViewDataProvider.swift */,
 				178EA8A52284B7E2002EF779 /* HomeViewController.swift */,
 				17E5CBBA228A0EAB00C52938 /* HomeView.swift */,
 			);
@@ -313,7 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				17CC49B2230B33C2008D328F /* StubRepository.swift */,
-				17CC49AF230B237B008D328F /* mockedGitHubRepositoriesResponse.json */,
 			);
 			path = Stub;
 			sourceTree = "<group>";
@@ -432,6 +457,7 @@
 				17B425CB2283B2290049B480 /* LaunchScreen.storyboard in Resources */,
 				17B425C52283B12B0049B480 /* Localizable.strings in Resources */,
 				17B425F92283D7A80049B480 /* Roboto-Medium.ttf in Resources */,
+				17239B50231072D100542F61 /* HomeDetailsViewController.xib in Resources */,
 				17B425F72283D7A80049B480 /* Roboto-Bold.ttf in Resources */,
 				17B425F62283D7A80049B480 /* Roboto-Light.ttf in Resources */,
 				17B425962283AAFF0049B480 /* Assets.xcassets in Resources */,
@@ -442,7 +468,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17CC49B0230B237B008D328F /* mockedGitHubRepositoriesResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,17 +563,20 @@
 				17B7CDFE2287A55400780D3C /* Date.swift in Sources */,
 				17B425E42283BBBB0049B480 /* Font.swift in Sources */,
 				17CC499F230AE8A1008D328F /* URLSessionRepository.swift in Sources */,
+				17239B4E2310728C00542F61 /* HomeDetailsViewController.swift in Sources */,
 				17B425DA2283B7E00049B480 /* HomeViewModel.swift in Sources */,
+				17239B562310801100542F61 /* HomeViewDataProvider.swift in Sources */,
 				17B425CE2283B3EB0049B480 /* Coordinator.swift in Sources */,
 				17B425EC2283D0000049B480 /* Repository.swift in Sources */,
 				178EA8AC2284DEDE002EF779 /* Settings.swift in Sources */,
 				178EA8A62284B7E2002EF779 /* HomeViewController.swift in Sources */,
 				17B425E22283BA930049B480 /* UIColor.swift in Sources */,
 				17AF5C5D23037CD000A3E7D0 /* LocalizedString.swift in Sources */,
-				17CB427622860BF4004FD890 /* LoadingViewCell.swift in Sources */,
 				178EA8AE2284F4FF002EF779 /* UIViewController.swift in Sources */,
+				17239B54231077FE00542F61 /* LoadingView.swift in Sources */,
 				17B426002283EFE70049B480 /* GitRepositoryQueryResult.swift in Sources */,
 				17B425EF2283D11E0049B480 /* GitRepositoryItem.swift in Sources */,
+				17239B4C2310727C00542F61 /* HomeDetailsViewModel.swift in Sources */,
 				17B425DF2283BA4C0049B480 /* Color.swift in Sources */,
 				17B4258F2283AAFB0049B480 /* AppDelegate.swift in Sources */,
 				17E5CBBB228A0EAB00C52938 /* HomeView.swift in Sources */,
@@ -639,7 +667,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -695,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -751,7 +779,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HTDRBTYNMU;
 				INFOPLIST_FILE = GitSuperStarsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,7 +801,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HTDRBTYNMU;
 				INFOPLIST_FILE = GitSuperStarsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

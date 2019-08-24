@@ -67,12 +67,17 @@ class HomeView: UIView {
         return rc
     }()
     
+    let fetchingProgressView: LoadingView = {
+        let view = LoadingView(frame: CGRect( x: 0, y: 0, width: Size.loading_view_cell_height.value, height: Size.loading_view_cell_height.value))
+        return view
+    }()
+    
     // MARK: - Constraints
     
     private func constraintTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.leadingAnchor.constraint(equalTo: extSafeArea.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: extSafeArea.trailingAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: extSafeArea.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: extSafeArea.bottomAnchor).isActive = true
     }
