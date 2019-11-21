@@ -1,75 +1,38 @@
 import UIKit
 
-class HomeView: UIView {
-    
-    // MARK: - Properites
-    
-    private var wasSetupConstraintsCalledOnce = false
-    
-    // MARK: - Lifecycle
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        setupView()
-    }
-    
-    override func layoutSubviews() {
-        if (wasSetupConstraintsCalledOnce == false) {
-            wasSetupConstraintsCalledOnce = true
-            setupConstraints()
-        }
-        super.layoutSubviews()
-    }
-    
-    // MARK: - Helper Functions
-    
-    private func setupView() {
+class HomeView: BaseView {
+
+    let navigationItemLogo: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(
+            x: 0, y: 0,
+            width: Size.navigationLogoWidth.value,
+            height: Size.navigationLogoHeight.value))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "GitSuperStarsLogo")
+        return imageView
+    }()
+
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorColor = Color.colorGreyLight.value
+        tableView.backgroundColor = Color.colorGreyLighter.value
+        return tableView
+    }()
+
+    let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: LocalizedString.pullToRefresh.value)
+        refreshControl.tintColor = Color.colorGreyLight.value
+        return refreshControl
+    }()
+
+    override func setupView() {
         backgroundColor = Color.colorGreyLighter.value
-        
         addSubview(tableView)
         tableView.refreshControl = refreshControl
     }
-    
-    private func setupConstraints() {
-        constraintTableView()
-    }
-    
-    // MARK: - Instances
-    
-    let navigationItemLogo: UIImageView = {
-        let iv = UIImageView(frame: CGRect( x: 0, y: 0, width: Size.navigation_logo_width.value, height: Size.navigation_logo_height.value))
-        iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(named: "GitSuperStarsLogo")
-        return iv
-    }()
-    
-    let tableView: UITableView = {
-        let tv = UITableView()
-        tv.allowsSelection = false
-        tv.separatorColor = Color.colorGreyLight.value
-        tv.backgroundColor = Color.colorGreyLighter.value
-        return tv
-    }()
-    
-    let refreshControl: UIRefreshControl = {
-        let rc = UIRefreshControl()
-        rc.attributedTitle = NSAttributedString(string: LocalizedString.pull_to_refresh.value)
-        rc.tintColor = Color.colorGreyLight.value
-        return rc
-    }()
-    
-    // MARK: - Constraints
-    
-    private func constraintTableView() {
+
+    override func setupConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: extSafeArea.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: extSafeArea.trailingAnchor).isActive = true

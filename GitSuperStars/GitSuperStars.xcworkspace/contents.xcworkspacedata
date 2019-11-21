@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/davidlima/Projects/github/GitSuperStars/GitSuperStars/GitSuperStars/Screens/Details/DetailsViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:GitSuperStars.xcodeproj">
    </FileRef>
    <FileRef

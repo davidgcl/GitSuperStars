@@ -1,53 +1,55 @@
 import UIKit
 
-final class AppCoordinator: Coordinator {
-    
-    // MARK: - Enums
-    
-    enum NavigationTarget {
-        case NONE
-        case SECTOR_HOME
-    }
+final class AppCoordinator: BaseCoordinator {
 
-    // MARK: - Properties
-    
-    private let window: UIWindow
+    private let window: UIWindow?
     private let repository: Repository
-    private var currentSector: NavigationTarget = NavigationTarget.NONE
-    
-    // MARK: - Lifecycle
-    
+
     public init(window: UIWindow) {
         self.window = window
         self.repository = URLSessionRepository()
-        super.init(navigationController: UINavigationController(rootViewController: UIViewController()))
+        super.init()
     }
-    
+
     override func start() {
-        
-        navigateTo(target: NavigationTarget.SECTOR_HOME)
-        
-        navigationController.isNavigationBarHidden = false
-        window.rootViewController = self.navigationController
-        window.makeKeyAndVisible()
+        self.presenter = UINavigationController(rootViewController: buildHomeVC())
+        presenter?.isNavigationBarHidden = false
+        window?.rootViewController = self.presenter
+        window?.makeKeyAndVisible()
     }
-    
-    // MARK: - Navigation
-    
-    private func navigateTo(target: NavigationTarget, with params: Any? = nil) {
+}
 
-        guard target != currentSector else { return }
-        
-        switch target {
-            
-        case .NONE:
-            break
+extension AppCoordinator {
 
-        case .SECTOR_HOME:
-            let vc = HomeViewController(viewModel: HomeViewModel(repository: repository))
-            replaceScreen(viewController: vc, insertLevel: .ROOT, animated: true)
-            currentSector = target
-            break
-        }
+    private func buildHomeVC() -> HomeViewController<HomeView, HomeViewModel> {
+        let homeVC = HomeViewController(viewModel: HomeViewModel(repository: repository))
+        homeVC.delegate = self
+        homeVC.delegateBase = self
+        return homeVC
+    }
+
+    private func buildDetailsVC() -> DetailsViewController<DetailsView, DetailsViewModel> {
+        let detailsVC = DetailsViewController(viewModel: DetailsViewModel())
+        detailsVC.delegate = self
+        detailsVC.delegateBase = self
+        return detailsVC
+    }
+}
+
+extension AppCoordinator: HomeViewControllerDelegate {
+
+    func homeDidTap(item: GitRepositoryItem) {
+        present(viewController: buildDetailsVC(), type: .push)
+    }
+}
+
+extension AppCoordinator: DetailsViewControllerDelegate {
+
+}
+
+extension AppCoordinator: BaseViewControllerDelegate {
+
+    func didFinish(viewController: UIViewController) {
+        print("detected the de initialization of \(String(describing: viewController.self))")
     }
 }

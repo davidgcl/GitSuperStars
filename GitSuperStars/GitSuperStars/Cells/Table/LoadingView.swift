@@ -1,6 +1,6 @@
 import UIKit
 
-class LoadingViewCell: UITableViewCell {
+class LoadingView: UIView {
 
     private var isConstraintsConfigured = false
 
@@ -9,8 +9,8 @@ class LoadingViewCell: UITableViewCell {
         return spinner
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupView()
     }
 

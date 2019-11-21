@@ -12,7 +12,7 @@ PODS:
     - RxSwift (~> 5)
 
 DEPENDENCIES:
-  - Kingfisher (~> 5.7.1)
+  - Kingfisher (~> 5)
   - RxBlocking (~> 5)
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
@@ -35,6 +35,6 @@ SPEC CHECKSUMS:
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   RxTest: 4349afe98f564e0a9bc19063368904622d17d49a
 
-PODFILE CHECKSUM: 96df2a1e824214495e660ca9e5f8388d2a7f8edd
+PODFILE CHECKSUM: a6f630c478eb27f743d9a6a83377696eab12feed
 
 COCOAPODS: 1.7.1
