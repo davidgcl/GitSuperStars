@@ -1,7 +1,10 @@
 import UIKit
+import GSCore
+import GSHome
+import GSDetails
 
-final class AppCoordinator: BaseCoordinator {
-
+class AppCoordinator: Coordinator {
+    
     private let window: UIWindow?
     private let repository: Repository
 
@@ -10,17 +13,20 @@ final class AppCoordinator: BaseCoordinator {
         self.repository = URLSessionRepository()
         super.init()
     }
-
+    
     override func start() {
-        self.presenter = UINavigationController(rootViewController: buildHomeVC())
-        presenter?.isNavigationBarHidden = false
-        window?.rootViewController = self.presenter
+        let rootViewController = buildHomeVC()
+        self.rootViewController = rootViewController
+                
+        let presenter = UINavigationController(rootViewController: rootViewController)
+        self.presenter = presenter
+        
+        presenter.isNavigationBarHidden = false
+        window?.rootViewController = presenter
         window?.makeKeyAndVisible()
     }
-}
-
-extension AppCoordinator {
-
+    
+    // MARK: - Helpers
     private func buildHomeVC() -> HomeViewController<HomeView, HomeViewModel> {
         let homeVC = HomeViewController(viewModel: HomeViewModel(repository: repository))
         homeVC.delegate = self
@@ -28,18 +34,19 @@ extension AppCoordinator {
         return homeVC
     }
 
-    private func buildDetailsVC() -> DetailsViewController<DetailsView, DetailsViewModel> {
-        let detailsVC = DetailsViewController(viewModel: DetailsViewModel())
-        detailsVC.delegate = self
-        detailsVC.delegateBase = self
-        return detailsVC
+    private func buildDetailsCoordinator() -> DetailsCoordinator {
+        let coordinator = DetailsCoordinator(presenter)
+        coordinator.delegate = self
+        return coordinator
     }
 }
 
 extension AppCoordinator: HomeViewControllerDelegate {
 
     func homeDidTap(item: GitRepositoryItem) {
-        present(viewController: buildDetailsVC(), type: .push)
+        let coordinator = buildDetailsCoordinator()
+        addChildCoordinator(coordinator)
+        coordinator.start()
     }
 }
 
@@ -51,5 +58,13 @@ extension AppCoordinator: BaseViewControllerDelegate {
 
     func didFinish(viewController: UIViewController) {
         print("detected the de initialization of \(String(describing: viewController.self))")
+    }
+}
+
+extension AppCoordinator: CoordinatorDelegate {
+    
+    func didFinish(coordinator: CoordinatorProtocol) {
+        print("detected the de initialization of coordinator \(String(describing: coordinator.self))")
+        removeChildCoordinator(coordinator)
     }
 }
